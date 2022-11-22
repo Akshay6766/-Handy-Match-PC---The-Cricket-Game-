@@ -1,0 +1,176 @@
+#Created By Akshay Sankar#
+
+import random
+print("Welcome to Handy Match Playground \n")
+b = input("Enter no of balls to be played \n")
+
+b            = int(b)
+score        = 0
+match_score  = 0
+choice       = ["h" , "t"]
+balls        = [1,2,3,4,5,6]
+bats         = [1,2,3,4,5,6]
+swing = []
+field = []      
+
+def batting():
+        global bat
+        global ball
+        global score 
+        global match_score
+          
+        for i in range (b):
+                 ball = random.choice(balls) 
+                 
+                 bat=input(" \n swing it : ")
+                 if(int(bat) == 6):                         
+                         swing.append(bat)                        
+                 if(int(bat) == 5):
+                         swing.append(bat)
+                 if(int(bat) == 4):                         
+                         swing.append(bat)
+                         
+                 if(int(bat) == 3):
+                         swing.append(bat)
+                 if(int(bat) == 2):
+                         swing.append(bat)
+                 if(int(bat) == 1):
+                         swing.append(bat)   
+                 print(swing[i] ,end=",")
+                 score = int(score) + int(bat) 
+
+                 if (int(bat) == 6) and int(bat) != int(ball):    
+                     print("SIX!!!!!!")    
+                 if (int(bat) == 4) and int(bat) != int(ball):
+                     print("FOUR !!!!")   
+                                
+                                               
+                 if (int(bat) == int(ball)):
+                        score = int(score) - int(bat) 
+                        print("")           
+                        print("outzaat \n")                  
+                        break
+        
+        print("Total  run is : ",score)    
+                                       
+        print(" \n Innings Over \n ")          
+                
+        
+        
+
+def fielding():
+        global bat
+        global ball
+        global score
+        global match_score
+        
+        for i in range (b):
+                batt = random.choice(bats)                 
+                ball=input("\n Enter the Balls : ")
+                if(int(batt) == 6):                         
+                         field.append(batt)                         
+                if(int(batt) == 5):
+                         field.append(batt)
+                if(int(batt) == 4):                         
+                         field.append(batt)                         
+                if(int(batt) == 3):
+                         field.append(batt)
+                if(int(batt) == 2):
+                         field.append(batt)
+                if(int(batt) == 1):
+                         field.append(batt)
+                         
+                print(field[i] ,end="," )
+                match_score = int(match_score) + int(batt)
+
+                if (int(batt) == 6) and int(batt) != int(ball):    
+                     print("SIX!!!!!!")    
+                if (int(batt) == 4) and int(batt) != int(ball): 
+                     print("FOUR !!!!")                             
+                
+                                    
+                if (int(batt) == int(ball)):
+                        match_score = int(match_score) - int(batt)
+                        print("")
+                        print("\n outzaat \n")
+                        break              
+                                      
+        
+        print("Total  run is : ",match_score)          
+                  
+        print("\n Innings over \n")
+        
+        
+       
+
+def won():
+        global score
+        global match_score
+         
+         
+        if (int(match_score) > int(score)):
+                print("\n Computer Won \n")
+        if (int(score)) > int(match_score):
+                print("\n User Won \n")
+        if (int(match_score) == int(score)):
+                print("match draw")
+         
+
+
+print("Get ready for Coin Toss \n")     
+userchoose = input("Head or Tails (type h or t )")
+print("userchoose : ",userchoose) 
+     
+choose = random.choice(choice)
+print("Toss result is : ",choose )
+if (choose == userchoose):
+         print("\n user won the toss \n")
+         play = input("Select Bat or Ball (type bat or ball\n")
+         if(play == 'bat' ):
+
+                 print("\n 1st Innings \n")
+
+                 batting()                                  
+                 
+                 print(" To Win : ",score+1)
+                 
+                 print("\n 2nd Innings........... \n")
+
+                 fielding() 
+                            
+                 won()
+
+         elif(play == 'ball' ):
+                  print("\n User Choose Fielding \n")   
+                  print("1st Innings................\n")
+
+                  fielding()             
+                  
+                  print(" To Win : ",match_score+1) 
+
+                  print("\n 2nd Innings....................\n")
+
+                  batting()
+                  
+                  won()    
+         else:
+                  print("Invalid Input")          
+else:
+
+         print("computer won the toss \n")
+         print("computer decided to bat \n")
+
+         print("1st Innings.............\n ")
+         
+         fielding()
+         
+         print("\nTo Win : ",match_score+1)
+
+         print("\n 2nd innings.........\n")
+         
+         batting()
+         
+         
+         won()
+
+
